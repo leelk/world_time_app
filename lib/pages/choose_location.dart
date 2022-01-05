@@ -13,24 +13,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
 
 
-  @override
-  void initState() {
-    super.initState();
-    getData();
-    print("init function called");
-  }
 
-  void getData() async {
-    // Simulate network request for a username.
-    String name = await Future.delayed(Duration(seconds: 2), (){
-      return "Leel";
-    });
-    // Simulate network request to get bio of the username
-    String bio = await Future.delayed(Duration(seconds: 1), (){
-      return "SE- Sri Lanka";
-    });
-    print('$name + ' ' + $bio');
-  }
 
   @override
   Widget build(BuildContext context) {
