@@ -15,18 +15,25 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    getData();
-    print("init function called");
+    getTime();
   }
 
-  void getData() async {
-
-    Response response = await get("https://jsonplaceholder.typicode.com/todos/1");
-
+  void getTime() async {
+    Response response = await get(
+        "http://worldtimeapi.org/api/timezone/Asia/Colombo");
     Map data = jsonDecode(response.body);
-    print(data['title'] + "came the title as fresh.");
+    // print(data);
 
+    // get properties by data
 
+    String dateTime = data['datetime'];
+    String offSet = data['utc_offset'].substring(1,3);
+
+    // create date time object
+
+    DateTime now = DateTime.parse(dateTime);
+    now =  now.add(Duration(hours: int.parse(offSet)));
+    print(now);
   }
 
 
