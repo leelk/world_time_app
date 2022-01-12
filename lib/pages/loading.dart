@@ -23,6 +23,7 @@ class _LoadingState extends State<Loading> {
       'location': instance.location,
       'time': instance.time,
       'flag': instance.flag,
+      'dayTime': instance.isDayTime
     });
 
   }
