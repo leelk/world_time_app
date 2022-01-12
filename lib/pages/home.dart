@@ -8,7 +8,6 @@ class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
-
 class _HomeState extends State<Home> {
   var data;
 
@@ -57,16 +56,20 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(
                     data['location'],
-                    style: TextStyle(fontSize: 28.0,
-                        letterSpacing: 2.0, color: Colors.white, fontWeight: FontWeight.w900),
+                    style: TextStyle(
+                        fontSize: 28.0,
+                        letterSpacing: 2.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900),
                   )
                 ],
               ),
               SizedBox(height: 20.0),
-              Text(
-                data['time'],
-                style: TextStyle(fontSize: 66.0, color:Colors.white, fontWeight: FontWeight.w900)),
-
+              Text(data['time'],
+                  style: TextStyle(
+                      fontSize: 66.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w900)),
             ],
           ),
         ),
