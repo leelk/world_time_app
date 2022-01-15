@@ -21,6 +21,14 @@ class _ChooseLocationState extends State<ChooseLocation> {
     WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
   ];
 
+  void updateTime(index){
+    WorldTime instance = locations[index];
+    instance.getTime();
+    Navigator.pop(context, {  'location': instance.location,
+      'time': instance.time,
+      'flag': instance.flag,
+      'dayTime': instance.isDayTime});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +44,18 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: ListView.builder(
         itemCount: locations.length ,
         itemBuilder: (context,index){
-          return Card(
-            child: ListTile(
-              onTap: () {},
-              title: Text(locations[index].location),
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                 updateTime(index);
+                },
+                title: Text(locations[index].location),
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage('assests/${locations[index].flag}'),
+                ),
+              ),
             ),
           );
         },
