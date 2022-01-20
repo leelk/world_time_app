@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    data =data.isNotEmpty ?data: ModalRoute.of(context)!.settings.arguments;
+    data = (data != null) ?data: ModalRoute.of(context)!.settings.arguments;
     print(data);
 
     // set background
